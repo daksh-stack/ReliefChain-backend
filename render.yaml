@@ -1,0 +1,28 @@
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: reliefchain-backend
+    runtime: node
+    plan: free
+    
+    # Build configuration
+    buildCommand: npm install
+    startCommand: npm start
+    
+    # Environment variables (set these in Render dashboard)
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false  # Set manually in dashboard
+      - key: JWT_SECRET
+        generateValue: true  # Render will generate a secure value
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel URL after deployment
+      - key: REDIS_URL
+        sync: false  # Optional - set if using Redis add-on
+    
+    # Health check
+    healthCheckPath: /health

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Backend for Disaster Relief Distribution Tracker using Priority Queue",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
